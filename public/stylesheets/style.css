@@ -1,8 +1,103 @@
 body {
+    background-color: #eee;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #575757;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
 }
+
+/*
+$light-blue: #5E9DE6;
+$blue: #006AE3;
+$blue2: #005EFF;
+
+$red-color: #D93636;
+orange: #FF7300;
+green #1FBF37
+
+*/
+
+.form-box {
+    background-color: white;
+    display: inline-block;
+    padding: 30px;
+    border-radius: 3px;
+}
+.form-box header h4 {
+    font-size: 20px;
+    text-align: center;
+}
+.form-box .input-row {
+    margin: 10px 0;
+}
+.form-box .input-row input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+}
+.form-box .input-row input:hover {
+    border-color: #B3DCFF;
+    box-shadow: 0 0 5px -1px #B3DCFF;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+}
+.form-box .input-row input:focus {
+    border-color: #4DAFFF;
+    box-shadow: 0 0 5px -1px #4DAFFF;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+}
+.form-box .input-row .strength-indicator {
+    margin-left: 10px;
+    display: inline-block;
+    max-height: 20px;
+    overflow: hidden;
+    text-align: left;
+}
+.form-box .input-row .strength-indicator.hidden {
+    width: 0;
+    opacity: 0;
+    transition: opacity 0.2s linear, width 0.2s linear 0.13s;
+    -webkit-transition: opacity 0.2s linear, width 0.2s linear 0.13s;
+}
+.form-box .input-row .strength-indicator.visible {
+    width: 70px;
+    opacity: 1;
+    transition: opacity 0.2s linear 0.15s, width 0.2s linear;
+    -webkit-transition: opacity 0.2s linear 0.15s, width 0.2s linear;
+}
+.form-box .input-row .strength-indicator .bubble {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+}
+.form-box .input-row .strength-indicator .bubble.gray {
+    background-color: #ccc;
+    transition: all 0.2s linear;
+}
+.form-box .input-row .strength-indicator .bubble.green {
+    background-color: #1FBF37;
+    transition: all 0.2s linear;
+}
+.form-box .input-row .strength-indicator .bubble.orange {
+    background-color: #FFA600;
+    transition: all 0.2s linear;
+}
+.form-box .input-row .strength-indicator .bubble.red {
+    background-color: brown;
+    transition: all 0.2s linear;
+}
+.form-box .input-row .strength-indicator label {
+    display: inline-block;
+    margin: 0 2px;
+    color: #aaa;
+}
+
