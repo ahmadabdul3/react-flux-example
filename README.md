@@ -1,8 +1,8 @@
 # password-service
 This is the completed project for the password service.
 
-***The logic for the password 'strength' is directly inside the react component, 
-if it should be a back-end service please let me know before accepting the
+***The logic that checks the 'password strength' is directly inside the react component, 
+if it should be a back-end service (via ajax) please let me know before accepting the
 pull request and I can update the project***
 
 ### Build Steps
