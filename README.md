@@ -6,7 +6,7 @@ We should be as helpful to our users as possible. When selecting passwords we
 should tell them if they've selected a good password. Your job is to implement
 a system to help our users select a good password.
 
-* Implement a service that will receive the password and return either `weak`,
+* Implement a back-end service that will receive the password and return either `weak`,
   `ok` or `strong.`
 * Implement a front end that will show the user the strength of their password
   as they are typing.
