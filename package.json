@@ -16,6 +16,7 @@
     "express": "^4.13.4",
     "inherits": "^2.0.1",
     "mime-db": "^1.22.0",
+    "morgan": "^1.7.0",
     "node-jsx": "^0.13.3",
     "object-assign": "^4.0.1",
     "react": "^0.14.7",
