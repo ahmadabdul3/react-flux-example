@@ -1,105 +1,64 @@
 var React = require('react');
 var ReactDom = require('react-dom');
+var store = require('../store/login-form-store.js');
+var actions = require('../actions/login-form-actions.js');
 
 var LoginForm = React.createClass({
 
     getInitialState: function() {
         return {
-            strIndClasses: {
+            passStr: 'weak',
+            passStrs: {
+                'weak': {
+                    bubbleClass: 'bubble red',
+                    str: 'Weak'
+                },
+                'ok': {
+                    bubbleClass: 'bubble orange',
+                    str: 'Ok'
+                },
+                'strong': {
+                    bubbleClass: 'bubble green',
+                    str: 'Strong'
+                }
+            },
+            strIndicatorClasses: {
                 hidden: 'strength-indicator hidden',
                 visible: 'strength-indicator visible'
             },
-            strIndClass: 'strength-indicator hidden',
-            passBubbleClasses: {
-                red: 'bubble red',
-                orange: 'bubble orange',
-                green: 'bubble green'
-            },
-            passBubbleClass: 'bubble red',
-            passStrengths: {
-                weak: 'Weak',
-                ok: 'Ok',
-                strong: 'Strong'
-            },
-            passStrength: 'Weak'
-
+            strIndicatorClass: 'strength-indicator hidden',
         };
+    },
+    componentDidMount: function(){
+        store.addChangeListener(this._onChange);
+    },
+    _onChange: function() {
+        this.setState({
+          passStr: store.getPasswordCheckResult()
+        });
     },
     checkStrength: function(e) {
         var value = e.target.value;
         var length = value.length;
         if(length > 0) {
             this.showStrengthIndicator();
-            if(length < 6) {
-                this.handleWeak();
-            } else if (length > 5 && length < 12) {
-                this.handleOk();
-            } else {
-                this.handleStrong();
-            }
+            actions.checkPassStrength(value);
         } else {
             this.hideStrengthIndicator();
         }
     },
 
-    handleWeak: function() {
-        this.makePassBubbleRed();
-        this.sayWeak();
-    },
-    handleOk: function() {
-        this.makePassBubbleOrange();
-        this.sayOk();
-    },
-    handleStrong: function() {
-        this.makePassBubbleGreen();
-        this.sayStrong();
-    },
-
     //strength indicator box**
     updateStrengthIndicatorClass: function(newValue) {
         this.setState({
-            strIndClass: newValue
+            strIndicatorClass: newValue
         });
     },
     hideStrengthIndicator: function() {
-        this.updateStrengthIndicatorClass(this.state.strIndClasses.hidden);
+        this.updateStrengthIndicatorClass(this.state.strIndicatorClasses.hidden);
     },
     showStrengthIndicator: function() {
-        this.updateStrengthIndicatorClass(this.state.strIndClasses.visible);
-    },
-    //**
-
-    //password bubble**
-    updatePasswordBubbleClass: function(newValue) {
-        this.setState({
-            passBubbleClass: newValue
-        });
-    },
-    makePassBubbleGreen: function() {
-        this.updatePasswordBubbleClass(this.state.passBubbleClasses.green);
-    },
-    makePassBubbleOrange: function() {
-        this.updatePasswordBubbleClass(this.state.passBubbleClasses.orange);
-    },
-    makePassBubbleRed: function() {
-        this.updatePasswordBubbleClass(this.state.passBubbleClasses.red);
-    },
-    //**
-
-    //password strength**
-    updatePasswordStrength: function(newValue) {
-        this.setState({
-            passStrength: newValue
-        });
-    },
-    sayWeak: function() {
-        this.updatePasswordStrength(this.state.passStrengths.weak);
-    },
-    sayOk: function() {
-        this.updatePasswordStrength(this.state.passStrengths.ok);
-    },
-    sayStrong: function() {
-        this.updatePasswordStrength(this.state.passStrengths.strong);
+        this.updateStrengthIndicatorClass(this.state.strIndicatorClasses.visible);
     },
     //**
 
@@ -113,14 +72,14 @@ var LoginForm = React.createClass({
                 </header>
                 <div className='input-row'>
                     <input type='text' placeholder='Username'/>
-                    <div className={this.state.strIndClass}>
+                    <div className={this.state.strIndicatorClass}>
                     </div>
                 </div>
                 <div className='input-row'>
                     <input type='password' placeholder='Password' onChange={this.checkStrength}/>
-                    <div className={this.state.strIndClass}>
-                        <div className={this.state.passBubbleClass}></div>
-                        <label>{this.state.passStrength}</label>
+                    <div className={this.state.strIndicatorClass}>
+                        <div className={this.state.passStrs[this.state.passStr].bubbleClass}></div>
+                        <label>{this.state.passStrs[this.state.passStr].str}</label>
                     </div>
                 </div>
             </div>
