@@ -35,6 +35,8 @@ green #1FBF37
     margin: 10px 0;
 }
 .form-box .input-row input {
+    display: inline-block;
+    vertical-align: middle;
     padding: 10px;
     outline: none;
     border: 1px solid #ccc;
@@ -57,6 +59,7 @@ green #1FBF37
 .form-box .input-row .strength-indicator {
     margin-left: 10px;
     display: inline-block;
+    vertical-align: middle;
     max-height: 20px;
     overflow: hidden;
     text-align: left;
