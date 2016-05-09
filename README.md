@@ -8,8 +8,8 @@ a system to help our users select a good password.
 
 * Implement a back-end service that will receive the password and return either `weak`,
   `ok` or `strong.`
-* Implement a front end that will show the user the strength of their password
-  as they are typing.
+* Implement a front end that calls the back-end service to measure the password and 
+  show the user the strength of their password as they are typing.
 
 ### Implementation Notes
 
