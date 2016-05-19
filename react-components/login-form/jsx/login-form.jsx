@@ -72,14 +72,22 @@ var LoginForm = React.createClass({
                 </header>
                 <div className='input-row'>
                     <input type='text' placeholder='Username'/>
-                    <div className={this.state.strIndicatorClass}>
-                    </div>
                 </div>
                 <div className='input-row'>
                     <input type='password' placeholder='Password' onChange={this.checkStrength}/>
                     <div className={this.state.strIndicatorClass}>
-                        <div className={this.state.passStrs[this.state.passStr].bubbleClass}></div>
-                        <label>{this.state.passStrs[this.state.passStr].str}</label>
+                        <div className='arrow-box'>
+                            <div className='arrow left'></div>
+                            <div className='vertical-mid-hack'></div>
+                        </div>
+                        <div className='text-box'>
+                            <div className='text'>
+                                <div className={this.state.passStrs[this.state.passStr].bubbleClass}></div>
+                                <label>{this.state.passStrs[this.state.passStr].str}</label>
+                            </div>
+                            <div className='vertical-mid-hack'></div>
+                        </div>
+                        <div className='vertical-mid-hack'></div>
                     </div>
                 </div>
             </div>

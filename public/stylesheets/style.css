@@ -33,6 +33,7 @@ green #1FBF37
 }
 .form-box .input-row {
     margin: 10px 0;
+    position: relative;
 }
 .form-box .input-row input {
     display: inline-block;
@@ -57,50 +58,87 @@ green #1FBF37
     -webkit-transition: all 0.2s linear;
 }
 .form-box .input-row .strength-indicator {
-    margin-left: 10px;
+    position: absolute;
+    margin-left: 3px;
+    left: 100%;
+    top: 0;
+    height: 100%;
+    text-align: left;
+    display: block;
+}
+.form-box .input-row .strength-indicator .arrow-box {
+    margin-left: 5px;
+    margin-right: -4px;
     display: inline-block;
     vertical-align: middle;
-    max-height: 20px;
-    overflow: hidden;
-    text-align: left;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.form-box .input-row .strength-indicator .arrow-box .arrow.left {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
 .form-box .input-row .strength-indicator.hidden {
-    width: 0;
+    min-width: 0;
     opacity: 0;
-    transition: opacity 0.2s linear, width 0.2s linear 0.13s;
-    -webkit-transition: opacity 0.2s linear, width 0.2s linear 0.13s;
+    transition: opacity 0.2s linear, min-width 0.2s linear 0.13s;
+    -webkit-transition: opacity 0.2s linear, min-width 0.2s linear 0.13s;
 }
 .form-box .input-row .strength-indicator.visible {
-    width: 70px;
+    min-width: 120px;
     opacity: 1;
-    transition: opacity 0.2s linear 0.15s, width 0.2s linear;
-    -webkit-transition: opacity 0.2s linear 0.15s, width 0.2s linear;
+    transition: opacity 0.2s linear 0.15s, min-width 0.2s linear;
+    -webkit-transition: opacity 0.2s linear 0.15s, min-width 0.2s linear;
 }
-.form-box .input-row .strength-indicator .bubble {
+.form-box .input-row .strength-indicator .text-box {
+    border: 1px solid #ddd;
+    height: 90%;
+    padding: 0 10px 0 6px;
+    border-radius: 5px;
+    background-color: white;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+.form-box .input-row .strength-indicator .text-box .text{
+    display: inline-block;
+    vertical-align: middle;
+}
+.form-box .input-row .strength-indicator .text-box .text .bubble {
     display: inline-block;
     margin: 0 4px;
     padding: 5px;
     border-radius: 100%;
 }
-.form-box .input-row .strength-indicator .bubble.gray {
+.form-box .input-row .strength-indicator .text-box .text .bubble.gray {
     background-color: #ccc;
     transition: all 0.2s linear;
 }
-.form-box .input-row .strength-indicator .bubble.green {
+.form-box .input-row .strength-indicator .text-box .text .bubble.green {
     background-color: #1FBF37;
     transition: all 0.2s linear;
 }
-.form-box .input-row .strength-indicator .bubble.orange {
+.form-box .input-row .strength-indicator .text-box .text .bubble.orange {
     background-color: #FFA600;
     transition: all 0.2s linear;
 }
-.form-box .input-row .strength-indicator .bubble.red {
+.form-box .input-row .strength-indicator .text-box .text .bubble.red {
     background-color: brown;
     transition: all 0.2s linear;
 }
-.form-box .input-row .strength-indicator label {
+.form-box .input-row .strength-indicator .text-box .text label {
     display: inline-block;
     margin: 0 2px;
     color: #aaa;
+}
+.vertical-mid-hack {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
 }
 
